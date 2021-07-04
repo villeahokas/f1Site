@@ -12,7 +12,10 @@ export default new Vuex.Store({
     ],
     teams: [
       { id: 1, teamName: 'Ferrari', team: 'McLaren', src: 'ferrari.jpg'} ,
-    ]
+    ],
+    c1: "#F44336",
+    c2: "#3F51B5",
+    c3: "#009688",
   },
   mutations: {
   },

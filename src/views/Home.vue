@@ -1,22 +1,12 @@
 <template>
   <div>
-    <v-toolbar
-      dark
-      prominent
-      src="..\assets\f1logoT.png"
-      height="200"
-      color="#C0C0C0"
-    >
-      <v-toolbar-title></v-toolbar-title>
+    <v-footer padless class="footer" >
+      <v-img src="..\assets\f1logoT.png"> </v-img>
+    </v-footer>
 
-      <v-btn icon href="https://www.youtube.com/watch?v=gf-D6zEKgpg&t=19s">
-        Häkkinen
-      </v-btn>
-    </v-toolbar>
+    <h1 class="text-h5 grey">Drivers</h1>
 
-    <h1>Drivers</h1>
-
-    <v-virtual-scroll :items="drivers" :item-height="300" height="1000">
+    <v-virtual-scroll :items="drivers" :item-height="300" height="400">
       <template v-slot:default="{ item }">
         <v-list-item>
           <v-list-item-content>
@@ -26,9 +16,9 @@
       </template>
     </v-virtual-scroll>
 
-    <h1>Teams</h1>
+    <h1 class="text-h5 grey lighten-2">Teams</h1>
 
-    <v-virtual-scroll :items="teams" :item-height="300" height="1000">
+    <v-virtual-scroll :items="teams" :item-height="300" height="400">
       <template v-slot:default="{ item }">
         <v-list-item>
           <v-list-item-content>
@@ -52,7 +42,22 @@ export default {
     },
     teams() {
       return this.$store.state.teams;
-    }
-  },
+    },
+  }
 };
 </script>
+
+<style scoped>
+  .footer {
+    animation: footerColorFlasher 0.1s infinite;
+  }
+
+  @keyframes footerColorFlasher {
+    0% {background-color: red;}
+    25%{background-color:yellow;}
+    50%{background-color:green;}
+    66%{background-color: black ;}
+    75%{background-color:brown;}
+    100% {background-color: red;}
+  }
+</style>
