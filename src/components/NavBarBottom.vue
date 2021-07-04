@@ -20,13 +20,13 @@
           </v-card-title>
 
           <v-card-actions>
-            <v-btn @click="addDriver()">
+            <v-btn @click="openAddDriverForm">
               <span>Add Driver</span>
 
               <v-icon>mdi-plus-circle-outline</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn @click="addTeam()">
+            <v-btn @click="openAddTeamForm">
               <span>Add Team</span>
 
               <v-icon>mdi-plus-circle-outline</v-icon>
@@ -47,7 +47,7 @@
 export default {
   data() {
     return {
-      dialog: false,
+      dialog: false
     };
   },
   methods: {
@@ -57,11 +57,11 @@ export default {
     openAddSelect() {
       this.dialog = !this.dialog;
     },
-    addDriver() {
-      this.$router.push("/AddDriver");
+    openAddDriverForm() {
+      this.$store.commit('toggleAddDriverForm')
     },
-    addTeam() {
-      this.$router.push("/AddTeam");
+    openAddTeamForm() {
+      this.$store.commit('toggleAddTeamForm')
     }
   },
 };

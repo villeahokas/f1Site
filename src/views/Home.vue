@@ -1,8 +1,5 @@
 <template>
   <div>
-    <v-footer padless class="footer" >
-      <v-img src="..\assets\f1logoT.png"> </v-img>
-    </v-footer>
 
     <h1 class="text-h5 grey">Drivers</h1>
 
@@ -27,15 +24,20 @@
         </v-list-item>
       </template>
     </v-virtual-scroll>
+    <AddDriver />
+    <AddTeam />
   </div>
+
 </template>
 
 <script>
 import SingleDriver from "../components/SingleDriver.vue";
 import SingleTeam from "../components/SingleTeam.vue";
+import AddDriver from "../components/AddDriver.vue";
+import AddTeam from "../components/AddTeam.vue";
 
 export default {
-  components: { SingleDriver, SingleTeam },
+  components: { SingleDriver, SingleTeam, AddDriver, AddTeam },
   computed: {
     drivers() {
       return this.$store.state.drivers;
@@ -47,17 +49,6 @@ export default {
 };
 </script>
 
-<style scoped>
-  .footer {
-    animation: footerColorFlasher 0.1s infinite;
-  }
-
-  @keyframes footerColorFlasher {
-    0% {background-color: red;}
-    25%{background-color:yellow;}
-    50%{background-color:green;}
-    66%{background-color: black ;}
-    75%{background-color:brown;}
-    100% {background-color: red;}
-  }
+<style>
+  
 </style>

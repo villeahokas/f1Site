@@ -1,5 +1,6 @@
 <template>
   <v-app>
+      <Footer />
       <router-view/>
       <NavBarBottom />
   </v-app>
@@ -7,9 +8,10 @@
 
 <script>
 import NavBarBottom from "./components/NavBarBottom.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  components: { NavBarBottom},
+  components: { NavBarBottom, Footer },
   name: 'App',
 
   data: () => ({
