@@ -14,7 +14,7 @@
           <v-toolbar-title>Add team</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn dark text @click="dialog = false"> Save </v-btn>
+            <v-btn dark text @click="handleSubmit"> Add and Save </v-btn>
           </v-toolbar-items>
         </v-toolbar>
         
@@ -22,26 +22,6 @@
         <v-form v-model="valid">
           <v-container>
             <v-row>
-              <v-col cols="12" md="4">
-                <v-text-field
-                  v-model="firstname"
-                  :rules="nameRules"
-                  :counter="10"
-                  label="First name"
-                  required
-                ></v-text-field>
-              </v-col>
-
-              <v-col cols="12" md="4">
-                <v-text-field
-                  v-model="lastname"
-                  :rules="nameRules"
-                  :counter="10"
-                  label="Last name"
-                  required
-                ></v-text-field>
-              </v-col>
-
               <v-col cols="12" md="4">
                 <v-text-field
                   v-model="teamName"
@@ -62,16 +42,11 @@
 export default {
   data: () => ({
       valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
-      ],
       teamName: '',
       teamNameRules: [
         v => !!v || 'Team name is required',
       ],
+      srcAvatar: "f1-logo.jpg"
     }),
   computed: {
     showForm() {
@@ -81,6 +56,17 @@ export default {
   methods: {
     closeForm() {
       this.$store.commit("toggleAddTeamForm");
+    },
+    handleSubmit() {
+      const team = {
+        teamName: this.teamName,
+        src: this.srcAvatar,
+      };
+      this.$store.commit("addTeam", team);
+      this.$store.commit("toggleAddTeamForm");
+    },
+    onFileSelected(event) {
+      this.selectedFile = event.target.files[0];
     },
   },
 };

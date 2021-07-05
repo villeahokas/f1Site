@@ -11,12 +11,16 @@ export default new Vuex.Store({
       { name: 'David Coulthard', team: 'McLaren', srcAvatar: 'coulthard.jpg', srcBackground: 'coulthardAuto.jpg'}
     ],
     teams: [
-      { id: 1, teamName: 'Ferrari', team: 'McLaren', src: 'ferrari.jpg'} ,
+      { teamName: 'Ferrari', src: 'ferrari.jpg'} ,
     ],
+    showAddSelect: false,
     showAddDriverForm: false,
     showAddTeamForm: false
   },
   mutations: {
+    toggleAddSelect (state) {
+      state.showAddSelect = !state.showAddSelect
+    },
     toggleAddDriverForm (state) {
       state.showAddDriverForm = !state.showAddDriverForm
     },
@@ -25,6 +29,9 @@ export default new Vuex.Store({
     },
     addDriver (state, payload) {
       state.drivers.push(payload) 
+    },
+    addTeam (state, payload) {
+      state.teams.push(payload) 
     }
   },
   actions: {

@@ -11,15 +11,14 @@
 
     <h1 class="text-h5 grey lighten-2">Teams</h1>
 
-    <v-virtual-scroll :items="teams" :item-height="300" height="400">
-      <template v-slot:default="{ item }">
-        <v-list-item>
-          <v-list-item-content>
-            <SingleTeam :team="item" />
-          </v-list-item-content>
-        </v-list-item>
-      </template>
-    </v-virtual-scroll>
+    <v-sheet class="mb-15" max-width="1500">
+      <v-slide-group multiple show-arrows class="pa-4">
+        <v-slide-item v-for="item in teams" :key="item.name">
+          <SingleTeam :team="item" />
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+
     <AddDriver />
     <AddTeam />
   </div>

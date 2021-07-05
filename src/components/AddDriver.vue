@@ -50,6 +50,9 @@
                   required
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" md="4">
+                <input type="file" @change="onFileSelected" />
+              </v-col>
             </v-row>
           </v-container>
         </v-form>
@@ -70,8 +73,9 @@ export default {
     ],
     teamName: "",
     teamNameRules: [(v) => !!v || "Team name is required"],
-    srcAvatar: 'generic.jpg',
-    srcBackground: 'genericAuto.jpg'
+    selectedFile: null,
+    srcAvatar: "generic.jpg",
+    srcBackground: "genericAuto.jpg",
   }),
   computed: {
     showForm() {
@@ -87,10 +91,13 @@ export default {
         name: this.firstname,
         team: this.teamName,
         srcAvatar: this.srcAvatar,
-        srcBackground: this.srcBackground
+        srcBackground: this.srcBackground,
       };
       this.$store.commit("addDriver", driver);
       this.$store.commit("toggleAddDriverForm");
+    },
+    onFileSelected(event) {
+      this.selectedFile = event.target.files[0];
     },
   },
 };

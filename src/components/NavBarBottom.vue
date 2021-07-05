@@ -12,7 +12,7 @@
       <v-icon>mdi-plus-circle-outline</v-icon>
     </v-btn>
 
-    <v-dialog v-model="dialog" persistent max-width="800">
+    <v-dialog v-model="showNav" persistent max-width="800">
       <v-card>
         <v-container>
           <v-card-title class="text-h5 grey lighten-2">
@@ -33,7 +33,7 @@
             </v-btn>
 
             <v-spacer></v-spacer>
-            <v-btn color="primary" text @click.stop="dialog = false"
+            <v-btn color="primary" @click="openAddSelect()"
               >Close</v-btn
             >
           </v-card-actions>
@@ -45,24 +45,24 @@
 
 <script>
 export default {
-  data() {
-    return {
-      dialog: false
-    };
+  computed: {
+    showNav() {
+      return this.$store.state.showAddSelect;
+    },
   },
   methods: {
     goHome() {
       this.$router.push("/");
     },
     openAddSelect() {
-      this.dialog = !this.dialog;
+      this.$store.commit("toggleAddSelect");
     },
     openAddDriverForm() {
-      this.$store.commit('toggleAddDriverForm')
+      this.$store.commit("toggleAddDriverForm");
     },
     openAddTeamForm() {
-      this.$store.commit('toggleAddTeamForm')
-    }
+      this.$store.commit("toggleAddTeamForm");
+    },
   },
 };
 </script>

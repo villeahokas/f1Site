@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="space-around">
-      <v-card width="400" class="mt-10 ma-100" >
+      <v-card width="400" class="ma-4" >
         <v-img
           height="200px"
 
@@ -20,18 +20,12 @@
 
           </v-app-bar>
 
-          <v-card-title class="white--text mt-8">
-            <v-avatar size="80">
-              <img
-                alt="user"
-                :src="require('../assets/' + team.src + '')"
-              >
-            </v-avatar>
-            <p class="ml-3">
-              {{ team.teamName }}
-            </p>
-          </v-card-title>
+          
         </v-img>
+
+        <v-card-subtitle class="pb-0">
+            {{ team.teamName }}
+        </v-card-subtitle>
 
 
         <v-card-text class="text--primary">
