@@ -14,15 +14,14 @@ export default {
 
 <style>
     .footer {
-    animation: footerColorFlasher 0.1s infinite;
+    animation: footerColorFlasher 3s infinite;
   }
 
   @keyframes footerColorFlasher {
-    0% {background-color: red;}
-    25%{background-color:yellow;}
-    50%{background-color:green;}
-    66%{background-color: black ;}
-    75%{background-color:brown;}
-    100% {background-color: red;}
+    0% {background-color: white;}
+    25%{background-color:silver;}
+    50%{background-color:grey;}
+    75%{background-color:silver;}
+    100% {background-color: white;}
   }
 </style>

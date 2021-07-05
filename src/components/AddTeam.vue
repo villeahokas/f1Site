@@ -45,7 +45,7 @@
               <v-col cols="12" md="4">
                 <v-text-field
                   v-model="teamName"
-                  :rules="teamNameRulse"
+                  :rules="teamNameRules"
                   label="Team name"
                   required
                 ></v-text-field>

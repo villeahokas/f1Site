@@ -7,17 +7,17 @@
       transition="dialog-bottom-transition"
     >
       <v-card>
-        <v-toolbar dark color="primary">
+        <v-toolbar dark color="red">
           <v-btn icon dark @click="closeForm">
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-toolbar-title>Add driver</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn dark text @click="dialog = false"> Save </v-btn>
+            <v-btn dark text @click="handleSubmit">Add and Save </v-btn>
           </v-toolbar-items>
         </v-toolbar>
-        
+
         <v-divider></v-divider>
         <v-form v-model="valid">
           <v-container>
@@ -45,7 +45,7 @@
               <v-col cols="12" md="4">
                 <v-text-field
                   v-model="teamName"
-                  :rules="teamNameRulse"
+                  :rules="teamNameRules"
                   label="Team name"
                   required
                 ></v-text-field>
@@ -61,18 +61,18 @@
 <script>
 export default {
   data: () => ({
-      valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
-      ],
-      teamName: '',
-      teamNameRules: [
-        v => !!v || 'Team name is required',
-      ],
-    }),
+    valid: false,
+    firstname: "",
+    lastname: "",
+    nameRules: [
+      (v) => !!v || "Name is required",
+      (v) => v.length <= 10 || "Name must be less than 10 characters",
+    ],
+    teamName: "",
+    teamNameRules: [(v) => !!v || "Team name is required"],
+    srcAvatar: 'generic.jpg',
+    srcBackground: 'genericAuto.jpg'
+  }),
   computed: {
     showForm() {
       return this.$store.state.showAddDriverForm;
@@ -80,6 +80,16 @@ export default {
   },
   methods: {
     closeForm() {
+      this.$store.commit("toggleAddDriverForm");
+    },
+    handleSubmit() {
+      const driver = {
+        name: this.firstname,
+        team: this.teamName,
+        srcAvatar: this.srcAvatar,
+        srcBackground: this.srcBackground
+      };
+      this.$store.commit("addDriver", driver);
       this.$store.commit("toggleAddDriverForm");
     },
   },

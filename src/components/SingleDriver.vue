@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="space-around">
-      <v-card width="400" class="mt-10 ma-100"  @click="toggleDialog">
+      <v-card width="400" class="ma-4"  @click="toggleDialog">
         <v-img
           height="200px"
 
@@ -27,7 +27,7 @@
                 :src="require('../assets/' + driver.srcAvatar + '')"
               >
             </v-avatar>
-            <p class="ml-3">
+            <p class="ml-3 grey black--text rounded">
               {{ driver.name }}
             </p>
           </v-card-title>
