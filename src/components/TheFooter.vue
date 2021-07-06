@@ -1,6 +1,6 @@
 <template>
   
-    <v-footer padless class="footer" >
+    <v-footer padless class="appFooter" >
       <v-img src="..\assets\f1logoT.png"> </v-img>
     </v-footer>
 
@@ -12,8 +12,8 @@ export default {
 }
 </script>
 
-<style>
-    .footer {
+<style scoped>
+    .appFooter {
     animation: footerColorFlasher 3s infinite;
   }
 

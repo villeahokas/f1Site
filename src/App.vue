@@ -1,18 +1,18 @@
 <template>
   <v-app>
-      <Footer />
-      <router-view/>
-      <NavBarBottom />
+    <TheFooter />
+    <router-view />
+    <TheNavBarBottom />
   </v-app>
 </template>
 
 <script>
-import NavBarBottom from "./components/NavBarBottom.vue";
-import Footer from "./components/Footer.vue";
+import TheNavBarBottom from "./components/TheNavBarBottom.vue";
+import TheFooter from "./components/TheFooter.vue";
 
 export default {
-  components: { NavBarBottom, Footer },
-  name: 'App',
+  components: {  TheFooter, TheNavBarBottom },
+  name: "App",
 
   data: () => ({
     //

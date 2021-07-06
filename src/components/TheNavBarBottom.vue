@@ -2,13 +2,11 @@
   <v-bottom-navigation absolute color="white" grow>
     <v-btn @click="goHome()">
       <span>List</span>
-
       <v-icon>mdi-format-list-bulleted</v-icon>
     </v-btn>
 
     <v-btn @click="openAddSelect()">
       <span>Add</span>
-
       <v-icon>mdi-plus-circle-outline</v-icon>
     </v-btn>
 
@@ -33,9 +31,7 @@
             </v-btn>
 
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click="openAddSelect()"
-              >Close</v-btn
-            >
+            <v-btn color="primary" @click="openAddSelect()">Close</v-btn>
           </v-card-actions>
         </v-container>
       </v-card>
